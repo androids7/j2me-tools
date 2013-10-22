@@ -12,6 +12,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import org.kxml2.io.KXmlParser;
 
 /**
  *
@@ -145,6 +146,10 @@ public class Config {
 
         public String toStringXML() {
             return xml;
+        }
+
+        public void parse(KXmlParser kxp) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
 

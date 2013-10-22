@@ -6,13 +6,12 @@
 package com.j2me.utils;
 
 import java.util.Calendar;
-import java.util.Date;
 
 /**
  *
  * @author willian
  */
-public class Data {
+public class Date {
     
     public static java.util.Date transformaEmData(String d) {   
        //2008-05-10T19:42:28.703
@@ -24,7 +23,7 @@ public class Data {
 
         Calendar cal = Calendar.getInstance();   
 
-        cal.setTime(new Date());   
+        cal.setTime(new java.util.Date());   
 
         cal.set(Calendar.YEAR, Integer.parseInt(ano));   
         cal.set(Calendar.MONTH, (Integer.parseInt(mes)-1));   
@@ -45,7 +44,7 @@ public class Data {
             
         Calendar cal = Calendar.getInstance();   
             
-        cal.setTime(new Date());
+        cal.setTime(new java.util.Date());
             
         cal.set(Calendar.YEAR, Integer.parseInt(ano));   
         cal.set(Calendar.MONTH, (Integer.parseInt(mes)-1));   
@@ -62,7 +61,7 @@ public class Data {
         String ano, mes, dia, hora, minuto, segundo;   
         Calendar cal = Calendar.getInstance();
         
-        cal.setTime(new Date());
+        cal.setTime(new java.util.Date());
             
         ano = d.substring(0, 4);   
         mes = d.substring(5, 7);   
@@ -126,11 +125,11 @@ public class Data {
         return data;
     }
     
-    public static String formataData(Date d) {
+    public static String formataData(java.util.Date d) {
         return formataData(d, false);
     }
 
-    public static String formataData(Date d, boolean ptBR) {
+    public static String formataData(java.util.Date d, boolean ptBR) {
         String ret = "";
         String ano, mes, dia;
 
@@ -153,7 +152,7 @@ public class Data {
         return ret;
     }
 
-    public static String formataDataHora(Date d, boolean horaScreen) {
+    public static String formataDataHora(java.util.Date d, boolean horaScreen) {
         String ret = formataData(d);   
         String hora, minuto;
            
@@ -176,11 +175,11 @@ public class Data {
         return ret;   
     }
     
-    public static String formataDataHora(Date d) {   
+    public static String formataDataHora(java.util.Date d) {   
         return formataDataHora(d, false);
     }
     
-    public static java.util.Date adicionaDiaNaData(Date data, long dias) {   
+    public static java.util.Date adicionaDiaNaData(java.util.Date data, long dias) {   
         long dataRecebida = data.getTime();
 
         if(dias > 0){
@@ -189,7 +188,7 @@ public class Data {
             dataRecebida = dataRecebida - (86400000L * (dias*-1));            
         }
 
-        return new Date(dataRecebida);
+        return new java.util.Date(dataRecebida);
     }
 
     public static String toString(String dateNoSeparator) {
@@ -209,11 +208,11 @@ public class Data {
         return ret;
     }
 
-    public static String toString(Date d) {
+    public static String toString(java.util.Date d) {
         return toString(d, true);
     }
 
-    public static String toString(Date d, boolean usingSeparator) {
+    public static String toString(java.util.Date d, boolean usingSeparator) {
         String ret = "";   
         String ano, mes, dia, hora, minuto, segundo;
            
@@ -354,7 +353,7 @@ public class Data {
 
             Calendar cal = Calendar.getInstance();
 
-            cal.setTime(new Date());
+            cal.setTime(new java.util.Date());
 
             cal.set(Calendar.YEAR, Integer.parseInt(ano));
             cal.set(Calendar.MONTH, (Integer.parseInt(mes)-1));
@@ -370,11 +369,11 @@ public class Data {
         }
     }
 
-    public static String formataDataHoraCompleta(Date d) {
+    public static String formataDataHoraCompleta(java.util.Date d) {
         return formataDataHoraCompleta(d, false);
     }
 
-    public static String formataDataHoraCompleta(Date d, boolean ptBR) {
+    public static String formataDataHoraCompleta(java.util.Date d, boolean ptBR) {
         String ret = formataData(d, ptBR);
         String hora, minuto, segundo;
 
