@@ -24,4 +24,14 @@ public class StringOperations {
             return haystack;
         }
     }
+
+    public static boolean isNullorEmpty(java.lang.String value) {
+        boolean nullorempty = true;
+
+        if (value != null && !value.equals("")) {
+            nullorempty = false;
+        }
+        
+        return nullorempty;
+    }
 }
