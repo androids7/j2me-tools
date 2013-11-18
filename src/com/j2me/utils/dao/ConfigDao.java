@@ -8,7 +8,6 @@ package com.j2me.utils.dao;
 import com.j2me.rms.DAO;
 import com.j2me.rms.Entity;
 import com.j2me.utils.entity.Config;
-import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
