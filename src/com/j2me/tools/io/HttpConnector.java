@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.j2me.utils.io;
+package com.j2me.tools.io;
 
 //import com.sun.midp.publickeystore.WebPublicKeyStore;
 import java.io.IOException;

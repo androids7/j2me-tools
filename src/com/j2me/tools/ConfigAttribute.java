@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.j2me.utils;
+package com.j2me.tools;
 
-import com.j2me.utils.dao.ConfigDao;
-import com.j2me.utils.entity.Config;
+import com.j2me.tools.dao.ConfigDao;
+import com.j2me.tools.entity.Config;
 
 /**
  *

@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.j2me.utils.dao;
+package com.j2me.tools.dao;
 
 import com.j2me.rms.DAO;
 import com.j2me.rms.Entity;
-import com.j2me.utils.entity.Config;
+import com.j2me.tools.entity.Config;
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

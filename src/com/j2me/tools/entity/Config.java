@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.j2me.utils.entity;
+package com.j2me.tools.entity;
 
 import com.j2me.rms.Entity;
 import java.io.ByteArrayInputStream;

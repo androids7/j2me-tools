@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.j2me.utils.timer;
+package com.j2me.tools.timer;
 
 import java.util.Hashtable;
 import java.util.Timer;

@@ -5,7 +5,7 @@
  * Confidential and proprietary.
  */
 
-package com.j2me.utils;
+package com.j2me.tools;
 
 import java.io.IOException;
 import java.io.InputStream;
