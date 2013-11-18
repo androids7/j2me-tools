@@ -6,30 +6,87 @@
 package com.j2me.utils;
 
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  *
  * @author willian
  */
 public class DateOperations {
+    public static final String FORMAT_DATE = "dd/MM/yyyy";
+    public static final String FORMAT_DATE_API = "yyyy-MM-dd";
+    public static final String FORMAT_HOUR = "kk";
+    public static final String FORMAT_YEAR = "yyyy";
+    public static final String FORMAT_HOUR_MONTH_SECOND = "kk:mm:ss";
+    public static final String FORMAT_DATE_HOUR_API = "yyyy-MM-dd kk:mm:ss";
+    public static final String FORMAT_DATE_HOUR_PT_BR = "dd/MM/yyyy kk:mm:ss";
+    public static final String FORMAT_DATE_HOUR_VIEW = "dd.MM.yyyy às kkhmm";
+    public static final String FORMAT_DATE_MATCH_VIEW = "DAY_WEEK, DAY MONTH YEAR";
     
+    public static String format(java.util.Date date, String pattern){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        
+        String day = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH));
+        String day_week = String.valueOf(calendar.get(Calendar.DAY_OF_WEEK));
+        String month = String.valueOf(calendar.get(Calendar.MONTH));
+        String year = String.valueOf(calendar.get(Calendar.YEAR));
+        String hour = String.valueOf(calendar.get(Calendar.HOUR));
+        String minute = String.valueOf(calendar.get(Calendar.MINUTE));
+        String second = String.valueOf(calendar.get(Calendar.SECOND));
+        
+        String result = "";
+        
+        if(FORMAT_DATE_HOUR_VIEW.equals(pattern)){
+            result = day + "." + month + "." + year + " às " + hour + "h" + minute;
+        }
+        else{
+            result = day + "/" + month + "/" + year + " " + hour + ":" + minute + ":" + second;
+        }
+                
+        return result;
+    }
+    
+    public static String format(String date, String pattern){
+        return format(transformaEmData(date), pattern);
+    }
+   
     public static java.util.Date transformaEmData(String d) {   
        //2008-05-10T19:42:28.703
         String ano, mes, dia;
+        int nMes;
 
-        ano = d.substring(0, 4);   
-        mes = d.substring(5, 7);   
-        dia = d.substring(8, 10);
-
+        ano = d.substring(12, 16);   
+        mes = d.substring(8, 11);  
+        nMes = getMonthByAbbreviation(mes);
+        dia = d.substring(5, 7);
+        
         Calendar cal = Calendar.getInstance();   
 
         cal.setTime(new java.util.Date());   
 
         cal.set(Calendar.YEAR, Integer.parseInt(ano));   
-        cal.set(Calendar.MONTH, (Integer.parseInt(mes)-1));   
+        cal.set(Calendar.MONTH, nMes);   
         cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(dia));   
 
         return cal.getTime();
+    }
+    
+    public static int getMonthByAbbreviation(String abbreviation){
+        String ab = abbreviation.toLowerCase();
+        if( ab.equals("jan")) return 0;
+        if( ab.equals("feb")) return 1;
+        if( ab.equals("mar")) return 2;
+        if( ab.equals("apr")) return 3;
+        if( ab.equals("may")) return 4;
+        if( ab.equals("jun")) return 5;
+        if( ab.equals("jul")) return 6;
+        if( ab.equals("aug")) return 7;
+        if( ab.equals("sep")) return 8;
+        if( ab.equals("oct")) return 9;
+        if( ab.equals("nov")) return 10;
+        if( ab.equals("dec")) return 11;
+        else return 0;
     }
     
     public static java.util.Date transformaEmDataHora(String d) {   
@@ -120,6 +177,19 @@ public class DateOperations {
             data = d.substring(8,10)+"/"+d.substring(5, 7) + " " + d.substring(11, 13) + ":" + d.substring(14, 16);
         }else if(d.length() == 10){
             data = d.substring(8,10)+"/"+d.substring(5, 7);
+        }
+        
+        return data;
+    }
+    
+    public static String formateDotDate(String d) {
+        //2008-05-10T19:42:28.703
+        String data="";
+            
+        if(d.length() >= 16){
+            data = d.substring(8,10)+"."+d.substring(5, 7) +"."+d.substring(0, 4) + " às " + d.substring(11, 13) + ":" + d.substring(14, 16);
+        }else if(d.length() == 10){
+            data = d.substring(8,10)+"."+d.substring(5, 7) +"."+d.substring(0, 4);
         }
         
         return data;
